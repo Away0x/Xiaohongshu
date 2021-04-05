@@ -6,6 +6,9 @@ target 'Xiaohongshu' do
   use_frameworks!
 
   # Pods for Xiaohongshu
+  # 顶部 tab bar 布局
   pod 'XLPagerTabStrip', '~> 9.0'
+  # 瀑布流布局
+  pod 'CHTCollectionViewWaterfallLayout/Swift'
 
 end

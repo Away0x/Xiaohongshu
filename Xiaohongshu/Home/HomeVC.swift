@@ -17,7 +17,6 @@ class HomeVC: ButtonBarPagerTabStripViewController {
         settings.style.selectedBarHeight = 3
         // buttonBarItem 样式
         settings.style.buttonBarItemBackgroundColor = .clear
-        settings.style.buttonBarItemTitleColor = .label
         settings.style.buttonBarItemFont = .systemFont(ofSize: 16)
         settings.style.buttonBarItemLeftRightMargin = 0
         
@@ -42,7 +41,7 @@ class HomeVC: ButtonBarPagerTabStripViewController {
         // }
     }
     
-    // 设置 tab bar 对应的 controller
+    // 设置 tab bar 对应的子视图
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         let followVC = storyboard!.instantiateViewController(identifier: kFollowVCID)
         let nearByVC = storyboard!.instantiateViewController(identifier: kNearByVCID)

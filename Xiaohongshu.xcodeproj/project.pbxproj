@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0340E263261B334D00C02A3B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340E262261B334D00C02A3B /* HomeVC.swift */; };
+		03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03456696261B4E12001490C4 /* WaterfallVC.swift */; };
+		0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03456699261B50A6001490C4 /* WaterfallCell.swift */; };
 		03A66653261B374D002ACDE5 /* FollowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66652261B374D002ACDE5 /* FollowVC.swift */; };
 		03A66656261B3760002ACDE5 /* DiscoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66655261B3760002ACDE5 /* DiscoveryVC.swift */; };
 		03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66658261B3774002ACDE5 /* NearByVC.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		0340E262261B334D00C02A3B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		03456696261B4E12001490C4 /* WaterfallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallVC.swift; sourceTree = "<group>"; };
+		03456699261B50A6001490C4 /* WaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCell.swift; sourceTree = "<group>"; };
 		03A66652261B374D002ACDE5 /* FollowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowVC.swift; sourceTree = "<group>"; };
 		03A66655261B3760002ACDE5 /* DiscoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryVC.swift; sourceTree = "<group>"; };
 		03A66658261B3774002ACDE5 /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -57,10 +61,10 @@
 		03A6665E261B39C2002ACDE5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				03A66652261B374D002ACDE5 /* FollowVC.swift */,
-				03A66655261B3760002ACDE5 /* DiscoveryVC.swift */,
-				03A66658261B3774002ACDE5 /* NearByVC.swift */,
 				0340E262261B334D00C02A3B /* HomeVC.swift */,
+				03A66655261B3760002ACDE5 /* DiscoveryVC.swift */,
+				03A66652261B374D002ACDE5 /* FollowVC.swift */,
+				03A66658261B3774002ACDE5 /* NearByVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -90,6 +94,8 @@
 				03EDE3CF2617715500B95BEA /* AppDelegate.swift */,
 				03EDE3D12617715500B95BEA /* SceneDelegate.swift */,
 				03EDE3D52617715500B95BEA /* Main.storyboard */,
+				03456696261B4E12001490C4 /* WaterfallVC.swift */,
+				03456699261B50A6001490C4 /* WaterfallCell.swift */,
 				03A6665E261B39C2002ACDE5 /* Home */,
 				03EDE3DB2617715800B95BEA /* Assets.xcassets */,
 				03EDE3DD2617715800B95BEA /* LaunchScreen.storyboard */,
@@ -233,6 +239,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */,
+				03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */,
+				0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */,
 				03EDE3DA2617715500B95BEA /* Xiaohongshu.xcdatamodeld in Sources */,
 				0340E263261B334D00C02A3B /* HomeVC.swift in Sources */,
 				03A66653261B374D002ACDE5 /* FollowVC.swift in Sources */,
