@@ -58,6 +58,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0345669C261B595D001490C4 /* Waterfall */ = {
+			isa = PBXGroup;
+			children = (
+				03456696261B4E12001490C4 /* WaterfallVC.swift */,
+				03456699261B50A6001490C4 /* WaterfallCell.swift */,
+			);
+			path = Waterfall;
+			sourceTree = "<group>";
+		};
+		0345669E261B5967001490C4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0345669C261B595D001490C4 /* Waterfall */,
+				03A6665B261B3895002ACDE5 /* Constants.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		03A6665E261B39C2002ACDE5 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,17 +109,15 @@
 		03EDE3CE2617715500B95BEA /* Xiaohongshu */ = {
 			isa = PBXGroup;
 			children = (
-				03EDE3CF2617715500B95BEA /* AppDelegate.swift */,
-				03EDE3D12617715500B95BEA /* SceneDelegate.swift */,
 				03EDE3D52617715500B95BEA /* Main.storyboard */,
-				03456696261B4E12001490C4 /* WaterfallVC.swift */,
-				03456699261B50A6001490C4 /* WaterfallCell.swift */,
 				03A6665E261B39C2002ACDE5 /* Home */,
+				0345669E261B5967001490C4 /* Common */,
 				03EDE3DB2617715800B95BEA /* Assets.xcassets */,
+				03EDE3D12617715500B95BEA /* SceneDelegate.swift */,
+				03EDE3CF2617715500B95BEA /* AppDelegate.swift */,
 				03EDE3DD2617715800B95BEA /* LaunchScreen.storyboard */,
 				03EDE3E02617715800B95BEA /* Info.plist */,
 				03EDE3D82617715500B95BEA /* Xiaohongshu.xcdatamodeld */,
-				03A6665B261B3895002ACDE5 /* Constants.swift */,
 			);
 			path = Xiaohongshu;
 			sourceTree = "<group>";
