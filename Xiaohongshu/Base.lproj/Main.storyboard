@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--消息-->
+        <!--Message-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
@@ -20,13 +20,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="消息" image="message.fill" catalog="system" id="CYd-JI-VEx"/>
+                    <tabBarItem key="tabBarItem" title="Message" image="message.fill" catalog="system" id="CYd-JI-VEx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616" y="934"/>
         </scene>
-        <!--商城-->
+        <!--Shopping-->
         <scene sceneID="tKo-BW-TfK">
             <objects>
                 <viewController id="GQ7-A8-Ote" sceneMemberID="viewController">
@@ -36,13 +36,13 @@
                         <viewLayoutGuide key="safeArea" id="dBZ-Yf-R6z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="商城" image="cart.fill" catalog="system" id="3Kn-WO-UsU"/>
+                    <tabBarItem key="tabBarItem" title="Shopping" image="cart.fill" catalog="system" id="3Kn-WO-UsU"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSs-jK-uz2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616" y="-334"/>
         </scene>
-        <!--首页-->
+        <!--Home-->
         <scene sceneID="E0R-4i-na3">
             <objects>
                 <viewController id="cmw-n4-OPX" customClass="HomeVC" customModule="Xiaohongshu" customModuleProvider="target" sceneMemberID="viewController">
@@ -82,7 +82,7 @@
                             <constraint firstItem="yuU-ej-CRu" firstAttribute="leading" secondItem="a4v-RW-eTU" secondAttribute="leading" id="uI6-Go-XG8"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="首页" image="house.fill" catalog="system" id="YgG-6K-7fx"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="YgG-6K-7fx"/>
                     <connections>
                         <outlet property="buttonBarView" destination="ZkV-Xe-xI0" id="xwj-pa-6oK"/>
                         <outlet property="containerView" destination="yuU-ej-CRu" id="svc-go-EsM"/>
@@ -183,7 +183,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNF-t4-GJc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3047.826086956522" y="-968.30357142857133"/>
+            <point key="canvasLocation" x="-738" y="-968"/>
         </scene>
         <!--FollowVC-->
         <scene sceneID="2Df-CW-tjl">
@@ -210,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lK-oq-iG7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-1623"/>
+            <point key="canvasLocation" x="2526.0869565217395" y="-1623.2142857142856"/>
         </scene>
         <!--Near ByVC-->
         <scene sceneID="mlT-He-wlg">
@@ -225,9 +225,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ii-ba-eKe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2338" y="-1623"/>
+            <point key="canvasLocation" x="3247.826086956522" y="-1623.2142857142856"/>
         </scene>
-        <!--发布-->
+        <!--Post-->
         <scene sceneID="1IP-9q-39e">
             <objects>
                 <viewController id="iQe-wV-cmA" sceneMemberID="viewController">
@@ -237,13 +237,13 @@
                         <viewLayoutGuide key="safeArea" id="so8-me-68d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="发布" image="plus.rectangle.fill" catalog="system" id="CmY-kJ-jT3"/>
+                    <tabBarItem key="tabBarItem" title="Post" image="plus.rectangle.fill" catalog="system" id="CmY-kJ-jT3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lat-jg-jkQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1616" y="299"/>
         </scene>
-        <!--我-->
+        <!--Me-->
         <scene sceneID="P1e-xo-c3S">
             <objects>
                 <viewController id="8iQ-7h-6KZ" sceneMemberID="viewController">
@@ -253,7 +253,7 @@
                         <viewLayoutGuide key="safeArea" id="MdK-3I-1Ix"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="我" image="person.fill" catalog="system" id="4l9-9o-0M7"/>
+                    <tabBarItem key="tabBarItem" title="Me" image="person.fill" catalog="system" id="4l9-9o-0M7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Z1-8y-7XW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

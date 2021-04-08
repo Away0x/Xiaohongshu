@@ -1,0 +1,9 @@
+/* 
+  infoPlist.strings
+  Xiaohongshu
+
+  Created by 吴彤 on 2021/4/6.
+  
+*/
+// app 名称
+"CFBundleDisplayName" = "小粉书";

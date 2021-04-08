@@ -29,7 +29,7 @@ class DiscoveryVC: ButtonBarPagerTabStripViewController, IndicatorInfoProvider {
     
     // 设置在父视图中 item 的 title
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        IndicatorInfo(title: "发现")
+        IndicatorInfo(title: NSLocalizedString("Discovery", comment: "首页上方的标题"))
     }
     
     // 设置 tab bar 对应的子视图
