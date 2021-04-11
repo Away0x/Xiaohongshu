@@ -10,5 +10,7 @@ target 'Xiaohongshu' do
   pod 'XLPagerTabStrip', '~> 9.0'
   # 瀑布流布局
   pod 'CHTCollectionViewWaterfallLayout/Swift'
+  # 选取照片
+  pod 'YPImagePicker'
 
 end

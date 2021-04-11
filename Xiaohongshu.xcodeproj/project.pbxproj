@@ -8,11 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		0340E263261B334D00C02A3B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340E262261B334D00C02A3B /* HomeVC.swift */; };
+		03452B33262311300083B808 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B32262311300083B808 /* Extensions.swift */; };
+		03452B38262327680083B808 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B37262327680083B808 /* PostVC.swift */; };
 		03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03456696261B4E12001490C4 /* WaterfallVC.swift */; };
 		0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03456699261B50A6001490C4 /* WaterfallCell.swift */; };
 		034566A1261B59F2001490C4 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 034566A0261B59F2001490C4 /* README.md */; };
 		034EEF3E261C9D100056B61E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034EEF40261C9D100056B61E /* InfoPlist.strings */; };
 		034EEF47261C9EEB0056B61E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 034EEF49261C9EEB0056B61E /* Localizable.strings */; };
+		03783D05261F39ED008B1FB7 /* TabBarC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03783D04261F39ED008B1FB7 /* TabBarC.swift */; };
 		03A66653261B374D002ACDE5 /* FollowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66652261B374D002ACDE5 /* FollowVC.swift */; };
 		03A66656261B3760002ACDE5 /* DiscoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66655261B3760002ACDE5 /* DiscoveryVC.swift */; };
 		03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A66658261B3774002ACDE5 /* NearByVC.swift */; };
@@ -29,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		0340E262261B334D00C02A3B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		03452B32262311300083B808 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		03452B37262327680083B808 /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		03456696261B4E12001490C4 /* WaterfallVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallVC.swift; sourceTree = "<group>"; };
 		03456699261B50A6001490C4 /* WaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallCell.swift; sourceTree = "<group>"; };
 		034566A0261B59F2001490C4 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		034EEF2F261C93080056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		034EEF3F261C9D100056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		034EEF48261C9EEB0056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		03783D04261F39ED008B1FB7 /* TabBarC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarC.swift; sourceTree = "<group>"; };
 		03A66652261B374D002ACDE5 /* FollowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowVC.swift; sourceTree = "<group>"; };
 		03A66655261B3760002ACDE5 /* DiscoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryVC.swift; sourceTree = "<group>"; };
 		03A66658261B3774002ACDE5 /* NearByVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearByVC.swift; sourceTree = "<group>"; };
@@ -78,8 +84,8 @@
 		0345669E261B5967001490C4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				0345669C261B595D001490C4 /* Waterfall */,
 				03A6665B261B3895002ACDE5 /* Constants.swift */,
+				03452B32262311300083B808 /* Extensions.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -100,6 +106,7 @@
 				03A66655261B3760002ACDE5 /* DiscoveryVC.swift */,
 				03A66652261B374D002ACDE5 /* FollowVC.swift */,
 				03A66658261B3774002ACDE5 /* NearByVC.swift */,
+				03452B37262327680083B808 /* PostVC.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -129,6 +136,7 @@
 			children = (
 				03EDE3D52617715500B95BEA /* Main.storyboard */,
 				03A6665E261B39C2002ACDE5 /* Home */,
+				0345669C261B595D001490C4 /* Waterfall */,
 				0345669E261B5967001490C4 /* Common */,
 				03EDE3DB2617715800B95BEA /* Assets.xcassets */,
 				03EDE3D12617715500B95BEA /* SceneDelegate.swift */,
@@ -137,6 +145,7 @@
 				03EDE3E02617715800B95BEA /* Info.plist */,
 				03EDE3D82617715500B95BEA /* Xiaohongshu.xcdatamodeld */,
 				034EEF46261C9E810056B61E /* Resources */,
+				03783D04261F39ED008B1FB7 /* TabBarC.swift */,
 			);
 			path = Xiaohongshu;
 			sourceTree = "<group>";
@@ -277,12 +286,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03452B38262327680083B808 /* PostVC.swift in Sources */,
 				03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */,
+				03783D05261F39ED008B1FB7 /* TabBarC.swift in Sources */,
 				03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */,
 				0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */,
 				03EDE3DA2617715500B95BEA /* Xiaohongshu.xcdatamodeld in Sources */,
 				0340E263261B334D00C02A3B /* HomeVC.swift in Sources */,
 				03A66653261B374D002ACDE5 /* FollowVC.swift in Sources */,
+				03452B33262311300083B808 /* Extensions.swift in Sources */,
 				03EDE3D02617715500B95BEA /* AppDelegate.swift in Sources */,
 				03EDE3D22617715500B95BEA /* SceneDelegate.swift in Sources */,
 				03A66656261B3760002ACDE5 /* DiscoveryVC.swift in Sources */,

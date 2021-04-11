@@ -230,7 +230,7 @@
         <!--Post-->
         <scene sceneID="1IP-9q-39e">
             <objects>
-                <viewController id="iQe-wV-cmA" sceneMemberID="viewController">
+                <viewController id="iQe-wV-cmA" customClass="PostVC" customModule="Xiaohongshu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aaE-Lu-IbN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -259,10 +259,10 @@
             </objects>
             <point key="canvasLocation" x="1616" y="1570"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab BarC-->
         <scene sceneID="iXG-J6-1Pn">
             <objects>
-                <tabBarController id="zTY-0P-bIG" sceneMemberID="viewController">
+                <tabBarController id="zTY-0P-bIG" customClass="TabBarC" customModule="Xiaohongshu" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4fZ-6a-cum">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
