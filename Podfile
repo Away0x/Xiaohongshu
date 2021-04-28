@@ -12,5 +12,7 @@ target 'Xiaohongshu' do
   pod 'CHTCollectionViewWaterfallLayout/Swift'
   # 选取照片
   pod 'YPImagePicker'
+  # 提示框 (OC)
+  pod 'MBProgressHUD', '~> 1.2.0'
 
 end
