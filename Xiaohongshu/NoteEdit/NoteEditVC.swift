@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import AVKit
 import YPImagePicker
+import SKPhotoBrowser
 
 class NoteEditVC: UIViewController {
     
-    var photos = [
-        UIImage(named: "1"), UIImage(named: "2"), UIImage(named: "3")
-    ]
-
+    var photos = [UIImage(named: "1"), UIImage(named: "2")]
+    // 测试数据
+    // var videoURL: URL? = Bundle.main.url(forResource: "testVideo", withExtension: "mp4")
+    var videoURL: URL?
 
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var photoCount: Int { photos.count }
+    var isVideo: Bool { videoURL != nil }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension NoteEditVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         photoCount
@@ -57,11 +61,49 @@ extension NoteEditVC: UICollectionViewDataSource {
     }
 }
 
+// MARK: - UICollectionViewDelegate
 extension NoteEditVC: UICollectionViewDelegate {
-    
+    // 点击 item
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if isVideo {
+            // 点击的是视频，预览视频
+            let playerVC = AVPlayerViewController()
+            playerVC.player = AVPlayer(url: videoURL!)
+            present(playerVC, animated: true) {
+                playerVC.player?.play() // 播放视频
+            }
+            
+        } else {
+            // 点击的是图片
+            var images: [SKPhoto] = []
+            
+            for photo in photos {
+                if let p = photo {
+                    images.append(SKPhoto.photoWithImage(p))
+                }
+            }
+            // 预览图片
+            let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
+            browser.delegate = self
+            SKPhotoBrowserOptions.displayAction = false // 隐藏分享按钮
+            SKPhotoBrowserOptions.displayDeleteButton = true // 显示删除按钮
+            present(browser, animated: false)
+        }
+    }
 }
 
-// MARK: - 事件
+// MARK: - SKPhotoBrowserDelegate
+extension NoteEditVC : SKPhotoBrowserDelegate {
+    // 图片浏览器-删除图片
+    func removePhoto(_ browser: SKPhotoBrowser, index: Int, reload: @escaping (() -> Void)) {
+        photos.remove(at: index)
+        reload() // reload 图片浏览器数据
+        photoCollectionView.reloadData() // reload collection view 数据
+    }
+}
+
+// MARK: - 监听自定义事件
 extension NoteEditVC {
     @objc private func addPhoto(sender: UIButton) {
         // 可以继续添加图片

@@ -14,5 +14,7 @@ target 'Xiaohongshu' do
   pod 'YPImagePicker'
   # 提示框 (OC)
   pod 'MBProgressHUD', '~> 1.2.0'
+  # 图片浏览器
+  pod 'SKPhotoBrowser'
 
 end
