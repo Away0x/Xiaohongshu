@@ -11,6 +11,8 @@ import YPImagePicker
 import SKPhotoBrowser
 
 class NoteEditVC: UIViewController {
+    // 存储当前正在拖拽的 cell 坐标
+    var dragingIndexPath = IndexPath(item: 0, section: 0)
     
     var photos = [UIImage(named: "1"), UIImage(named: "2")]
     // 测试数据
@@ -24,6 +26,8 @@ class NoteEditVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // 开启 collection view 拖拽交互
+        photoCollectionView.dragInteractionEnabled = true
     }
 }
 

@@ -342,6 +342,8 @@
                                                 <connections>
                                                     <outlet property="dataSource" destination="Cg1-sU-Jmo" id="fXM-Ce-aa9"/>
                                                     <outlet property="delegate" destination="Cg1-sU-Jmo" id="vXt-QY-qK2"/>
+                                                    <outlet property="dragDelegate" destination="Cg1-sU-Jmo" id="rxc-nl-fCk"/>
+                                                    <outlet property="dropDelegate" destination="Cg1-sU-Jmo" id="XyE-Dn-pmm"/>
                                                 </connections>
                                             </collectionView>
                                         </subviews>
