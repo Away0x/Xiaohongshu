@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>打开后可获取周边信息</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>打开后可以存储照片和视频</string>
 	<key>NSMicrophoneUsageDescription</key>

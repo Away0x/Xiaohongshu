@@ -16,5 +16,9 @@ target 'Xiaohongshu' do
   pod 'MBProgressHUD', '~> 1.2.0'
   # 图片浏览器
   pod 'SKPhotoBrowser'
+  # 给 text view 加 placeholder
+  pod 'KMPlaceholderTextView', '~> 1.4.0'
+  # 高德地图 sdk https://lbs.amap.com/api/ios-location-sdk/guide/create-project/cocoapods
+  pod 'AMapLocation'
 
 end

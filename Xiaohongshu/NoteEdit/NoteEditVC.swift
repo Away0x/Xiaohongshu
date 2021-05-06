@@ -6,138 +6,113 @@
 //
 
 import UIKit
-import AVKit
-import YPImagePicker
-import SKPhotoBrowser
 
 class NoteEditVC: UIViewController {
+    
+    // 请求位置权限
+    let locationManager = CLLocationManager()
+    
+    // ------------------- collection view -------------------
+    // 顶部图片选择布局
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     // 存储当前正在拖拽的 cell 坐标
     var dragingIndexPath = IndexPath(item: 0, section: 0)
-    
+    // 存储选择的图片
     var photos = [UIImage(named: "1"), UIImage(named: "2")]
-    // 测试数据
-    // var videoURL: URL? = Bundle.main.url(forResource: "testVideo", withExtension: "mp4")
-    var videoURL: URL?
-
-    @IBOutlet weak var photoCollectionView: UICollectionView!
-    
     var photoCount: Int { photos.count }
-    var isVideo: Bool { videoURL != nil }
     
+    // 视频链接，使可以打开视频预览
+    var videoURL: URL? // 测试数据: Bundle.main.url(forResource: "testVideo", withExtension: "mp4")
+    var isVideo: Bool { videoURL != nil } // 当前是否为视频预览模式
+    
+    // ------------------- 标题和正文表单 -------------------
+    // 标题输入框
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var titleCountLabel: UILabel!
+    // 正文
+    @IBOutlet weak var textView: UITextView!
+    // 正文 textView 软键盘顶部的 view
+    var textViewIAView: TextViewIAView { textView.inputAccessoryView as! TextViewIAView }
+    
+    // ------------------- 话题 -------------------
+    @IBOutlet weak var channelIcon: UIImageView!
+    @IBOutlet weak var channelLabel: UILabel!
+    @IBOutlet weak var channelPlaceHolderLabel: UILabel!
+    
+    var channel = ""
+    var subChannel = ""
+    
+    // ------------------- 初始化 -------------------
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 开启 collection view 拖拽交互
-        photoCollectionView.dragInteractionEnabled = true
-    }
-}
-
-// MARK: - UICollectionViewDataSource
-extension NoteEditVC: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        photoCount
+        config()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPhotoCellID, for: indexPath) as! PhotoCell
-        
-        cell.imageView.image = photos[indexPath.item]
-        
-        return cell
+    // 开始编辑 title
+    @IBAction func titleTextFieldEditBegin(_ sender: UITextField) {
+        titleCountLabel.isHidden = false
     }
     
-    // header footer
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    // 结束编辑 title
+    @IBAction func titleTextFieldEditEnd(_ sender: UITextField) {
+        titleCountLabel.isHidden = true
+    }
+    
+    // 编辑 title 中 (每输入一个字符之后都会调用)
+    @IBAction func titleTextFieldEditChange(_ sender: UITextField) {
+        // 修复系统自带拼音输入法的问题，当文本处于高亮时，表示用户正在输入中文拼音(不进行计数)
+        guard sender.markedTextRange == nil else { return }
+        // 大于最大字符数量，截取
+        if sender.unwrappedText.count > kMaxNoteTitleCount {
+            sender.text = String(sender.unwrappedText.prefix(kMaxNoteTitleCount))
+            showTextHUB("标题最多输入\(kMaxNoteTitleCount)字哦")
+            // 设置输入光标的位置
+            DispatchQueue.main.async {
+                let end = sender.endOfDocument // 文本结尾的位置
+                sender.selectedTextRange = sender.textRange(from: end, to: end)
+            }
+        }
         
-        switch kind {
-        // 自定义 footer
-        case UICollectionView.elementKindSectionFooter:
-            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kPhotoFooterID, for: indexPath) as! PhotoFooter
-            
-            footer.addPhotoBtn.addTarget(self, action: #selector(addPhoto), for: .touchUpInside)
-            
-            return footer
-        case UICollectionView.elementKindSectionHeader:
-            fatalError("no header")
-        default:
-            fatalError("非法的 collectionview cell")
-            // return UICollectionReusableView()
+        titleCountLabel.text = "\(kMaxNoteTitleCount - sender.unwrappedText.count)"
+    }
+    
+    // 编辑 title 时点击软键盘的 return
+    @IBAction func titleTextFieldEndOnExit(_ sender: UITextField) {
+        sender.resignFirstResponder() // 隐藏软键盘
+    }
+    
+    // TODO: 存草稿和发布笔记之前需判断当前用户输入的正文文本数量，看是否大于最大可输入的字符数
+    
+    // 因为 ChannelVC 的跳转是在 storyboard 中指定的，所以只能在这边进行判断
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let channelVC = segue.destination as? ChannelVC {
+            // channelVC 不是 self 下的属性, 没有强引用问题，所以 PVDelegate 声明时不用标记 weak
+            channelVC.PVDelegate = self
         }
     }
 }
 
-// MARK: - UICollectionViewDelegate
-extension NoteEditVC: UICollectionViewDelegate {
-    // 点击 item
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+// 标题 text field delegate
+extension NoteEditVC : UITextFieldDelegate {}
+
+// 正文 text view delegate
+extension NoteEditVC : UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        guard textView.markedTextRange == nil else { return }
+        textViewIAView.currentTextCount = textView.text.count
+    }
+}
+
+// vc 反向传值协议
+extension NoteEditVC : ChannelVCDelegate {
+    // 获取 ChannelTableVC 传递的数据
+    func updateChannel(channel: String, subChannel: String) {
+        self.channel = channel
+        self.subChannel = subChannel
         
-        if isVideo {
-            // 点击的是视频，预览视频
-            let playerVC = AVPlayerViewController()
-            playerVC.player = AVPlayer(url: videoURL!)
-            present(playerVC, animated: true) {
-                playerVC.player?.play() // 播放视频
-            }
-            
-        } else {
-            // 点击的是图片
-            var images: [SKPhoto] = []
-            
-            for photo in photos {
-                if let p = photo {
-                    images.append(SKPhoto.photoWithImage(p))
-                }
-            }
-            // 预览图片
-            let browser = SKPhotoBrowser(photos: images, initialPageIndex: indexPath.item)
-            browser.delegate = self
-            SKPhotoBrowserOptions.displayAction = false // 隐藏分享按钮
-            SKPhotoBrowserOptions.displayDeleteButton = true // 显示删除按钮
-            present(browser, animated: false)
-        }
-    }
-}
-
-// MARK: - SKPhotoBrowserDelegate
-extension NoteEditVC : SKPhotoBrowserDelegate {
-    // 图片浏览器-删除图片
-    func removePhoto(_ browser: SKPhotoBrowser, index: Int, reload: @escaping (() -> Void)) {
-        photos.remove(at: index)
-        reload() // reload 图片浏览器数据
-        photoCollectionView.reloadData() // reload collection view 数据
-    }
-}
-
-// MARK: - 监听自定义事件
-extension NoteEditVC {
-    @objc private func addPhoto(sender: UIButton) {
-        // 可以继续添加图片
-        if photoCount < kMaxPhotoCount {
-            var config = YPImagePickerConfiguration()
-            config.albumName = Bundle.main.appName
-            config.screens = [.library]
-            config.library.defaultMultipleSelection = true
-            config.library.maxNumberOfItems = kMaxPhotoCount - photoCount // 还可选的照片数量
-            config.library.spacingBetweenItems = kSpacingBetweenItems
-            config.gallery.hidesRemoveButton = false
-            
-            let picker = YPImagePicker(configuration: config)
-            
-            picker.didFinishPicking { [unowned picker] items, canceled in
-                for item in items {
-                    if case let .photo(photo) = item {
-                        // 添加图片
-                        self.photos.append(photo.image)
-                    }
-                }
-                // 刷新视图
-                self.photoCollectionView.reloadData()
-
-                picker.dismiss(animated: true)
-            }
-            
-            present(picker, animated: true)
-        } else {
-            showTextHUB("最多只能选择\(kMaxPhotoCount)张图片")
-        }
+        channelLabel.text = subChannel
+        channelLabel.textColor = kBlueColor
+        channelIcon.tintColor = kBlueColor
+        channelPlaceHolderLabel.isHidden = true
     }
 }

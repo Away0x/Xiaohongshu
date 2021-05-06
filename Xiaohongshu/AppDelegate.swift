@@ -11,10 +11,11 @@ import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        config()
+        
         return true
     }
 
@@ -79,3 +80,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    private func config() {
+        // 配置高德地图 (如果需要定位海外地址，需要开通高德海外 LBS)
+        AMapServices.shared().enableHTTPS = true
+        AMapServices.shared().apiKey = "83c1ad414cc8a51c8bdc76109d531049"
+    }
+}

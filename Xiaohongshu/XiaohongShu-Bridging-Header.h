@@ -13,3 +13,7 @@
 
 // import 的文件会在整个项目中生效，其他文件可不 import 直接使用
 #import "MBProgressHUD.h"
+
+// 高德 SDK
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>

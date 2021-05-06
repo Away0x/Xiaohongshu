@@ -16,6 +16,10 @@ extension UIView {
     }
 }
 
+extension UITextField {
+    var unwrappedText: String { text ?? "" }
+}
+
 extension UIViewController {
     // 提示框
     func showTextHUB(_ title: String, _ subTitle: String? = nil) {
@@ -26,9 +30,34 @@ extension UIViewController {
         hub.detailsLabel.text = subTitle
         hub.hide(animated: true, afterDelay: 2)
     }
+    
+    // 加载 loading
+    func showLoadHUB(_ title: String? = nil) {
+        let hub = MBProgressHUD.showAdded(to: view, animated: true)
+        hub.label.text = title
+    }
+    
+    // 隐藏 loading
+    func hideLoadHub() {
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
+    
+    // 点击空白处，隐藏软键盘
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        tap.cancelsTouchesInView = false // 给根视图加上手势时，最好设置一下这个，避免影响到其他控件的事件
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyBoard() {
+        view.endEditing(true) // 收起软键盘
+    }
 }
 
 extension Bundle {
+    // 获取 app name
     var appName: String {
         // 读取 localizedInfoDictionary 时要注意有可能没有值
         if let appName = localizedInfoDictionary?["CFBundleDisplayName"] as? String {
@@ -36,5 +65,13 @@ extension Bundle {
         } else {
             return infoDictionary!["CFBundleDisplayName"] as! String
         }
+    }
+    
+    // 读取 xib 文件
+    static func loadView<T>(fromNib name: String, with type: T.Type) -> T {
+        if let view = Bundle.main.loadNibNamed(name, owner: nil, options: nil)?.first as? T {
+            return view
+        }
+        fatalError("加载\(type)类型的 view 失败")
     }
 }
