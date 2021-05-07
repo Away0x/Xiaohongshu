@@ -7,6 +7,11 @@
 
 import UIKit
 
+// 扩展 String? 类型
+extension Optional where Wrapped == String {
+    var unwrappedValue: String { self ?? "" }
+}
+
 extension UIView {
     // 可以在 uiview xib 右侧属性栏显示设置改属性
     @IBInspectable

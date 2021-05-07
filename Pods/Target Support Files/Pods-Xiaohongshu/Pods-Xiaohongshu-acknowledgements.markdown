@@ -11,6 +11,11 @@ Copyright © 2014 AutoNavi. All Rights Reserved.
 Copyright © 2014 AutoNavi. All Rights Reserved.
 
 
+## AMapSearch
+
+Copyright © 2014 AutoNavi. All Rights Reserved.
+
+
 ## CHTCollectionViewWaterfallLayout
 
 Copyright (c) 2012 Nelson Tai <chiahsien@gmail.com>

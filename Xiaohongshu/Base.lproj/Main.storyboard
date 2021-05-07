@@ -633,7 +633,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="addressLabel" destination="xEJ-4u-uzG" id="4O0-oT-S4e"/>
-                                            <outlet property="titleLabel" destination="SMC-GP-lfd" id="7Ri-bc-1zd"/>
+                                            <outlet property="nameLabel" destination="SMC-GP-lfd" id="kQY-aD-QHf"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

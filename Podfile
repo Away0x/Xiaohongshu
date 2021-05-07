@@ -18,7 +18,8 @@ target 'Xiaohongshu' do
   pod 'SKPhotoBrowser'
   # 给 text view 加 placeholder
   pod 'KMPlaceholderTextView', '~> 1.4.0'
-  # 高德地图 sdk https://lbs.amap.com/api/ios-location-sdk/guide/create-project/cocoapods
-  pod 'AMapLocation'
+  # 高德地图 sdk
+  pod 'AMapLocation' # https://lbs.amap.com/api/ios-location-sdk/gettingstarted
+  pod 'AMapSearch' # https://lbs.amap.com/api/ios-sdk/gettingstarted
 
 end

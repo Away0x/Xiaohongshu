@@ -56,3 +56,5 @@ let kAllSubChannels = [
     ["我的猫儿子", "我的猫女儿", "我的兔兔"]
 ]
 
+// 高德
+let kNoPOIPH = "未知地点"
