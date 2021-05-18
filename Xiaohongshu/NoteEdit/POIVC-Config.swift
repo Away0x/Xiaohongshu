@@ -13,5 +13,14 @@ extension POIVC {
         locationManager.locationTimeout = 5
         // 逆地理请求超时时间，最低 2s
         locationManager.reGeocodeTimeout = 5
+        
+        // 上拉加载 footer
+        mjFooter.setRefreshingTarget(self, refreshingAction: #selector(aroundSearchPullToRefresh))
+        tableView.mj_footer = mjFooter
+        
+        // 点击空白处收起软键盘
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
     }
 }

@@ -21,5 +21,7 @@ target 'Xiaohongshu' do
   # 高德地图 sdk
   pod 'AMapLocation' # https://lbs.amap.com/api/ios-location-sdk/gettingstarted
   pod 'AMapSearch' # https://lbs.amap.com/api/ios-sdk/gettingstarted
+  # 下拉刷新/上拉加载
+  pod 'MJRefresh'
 
 end

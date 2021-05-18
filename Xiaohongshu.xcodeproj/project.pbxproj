@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		030ACDCD2647B15000D98CEB /* POIVC-KeywordsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030ACDCC2647B15000D98CEB /* POIVC-KeywordsSearch.swift */; };
 		0340E263261B334D00C02A3B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340E262261B334D00C02A3B /* HomeVC.swift */; };
 		03452B33262311300083B808 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B32262311300083B808 /* Extensions.swift */; };
 		03452B38262327680083B808 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B37262327680083B808 /* PostVC.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		030ACDCC2647B15000D98CEB /* POIVC-KeywordsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIVC-KeywordsSearch.swift"; sourceTree = "<group>"; };
 		03111E5B263848EB0095B9E6 /* XiaohongShu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XiaohongShu-Bridging-Header.h"; sourceTree = "<group>"; };
 		0340E262261B334D00C02A3B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		03452B32262311300083B808 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				03ECA67D2644137A0066228F /* POIVC.swift */,
 				035588B1264575A500D676ED /* POIVC-Config.swift */,
 				035588B5264575E600D676ED /* POIVC-Location.swift */,
+				030ACDCC2647B15000D98CEB /* POIVC-KeywordsSearch.swift */,
 				039E00732643E70500C108C4 /* Views */,
 			);
 			path = NoteEdit;
@@ -363,6 +366,7 @@
 				03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */,
 				03783D05261F39ED008B1FB7 /* TabBarC.swift in Sources */,
 				03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */,
+				030ACDCD2647B15000D98CEB /* POIVC-KeywordsSearch.swift in Sources */,
 				036AF989262726CB001EAA02 /* NoteEditVC.swift in Sources */,
 				037EB4AD2636EF940000BA14 /* PhotoFooter.swift in Sources */,
 				0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */,
