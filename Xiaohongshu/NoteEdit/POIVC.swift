@@ -9,6 +9,11 @@ import UIKit
 
 class POIVC: UIViewController {
     
+    // 用于反向传值，返回上一个页面时使用
+    var delegate: POIVCDelegate?
+    // 用于正向传值，其他页面进入这个页面时使用
+    var poiName = ""
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -32,7 +37,7 @@ class POIVC: UIViewController {
     }()
     // 周边搜索的分页信息
     var currentAroundPage = 1
-    var pageCount = 0
+    var pageCount = 0 // 周边搜索和关键字搜索的总页数
     
     // 关键字检索
     lazy var keywordSearchRequest: AMapPOIKeywordsSearchRequest = {
@@ -41,6 +46,8 @@ class POIVC: UIViewController {
         request.offset = kPOIsOffset
         return request
     }()
+    // 关键字检索的分页信息
+    var currentKeywordPage = 1
     
     // table 数据
     var pois = kPOIsInitArr
@@ -58,26 +65,34 @@ class POIVC: UIViewController {
         config()
         requestLocation()
         
-        searchBar.becomeFirstResponder() // focus
         mapSearch?.delegate = self
     }
     
 }
 
+// MARK: - UITableViewDataSource
 extension POIVC : UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        pois.count
-    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { pois.count }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kPOICellID, for: indexPath) as! POICell
+        let poi = pois[indexPath.row]
         
-        cell.poi = pois[indexPath.row]
+        cell.poi = poi
+        
+        if poi[0] == poiName { cell.accessoryType = .checkmark }
         
         return cell
     }
 }
 
+// MARK: - UITableViewDelegate
 extension POIVC : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)!
+        cell.accessoryType = .checkmark // cell 右侧会出现一个勾
+        // 反向传值
+        delegate?.updatePOIName(pois[indexPath.row][0])
+        dismiss(animated: true)
+    }
 }

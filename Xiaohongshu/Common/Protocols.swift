@@ -13,3 +13,8 @@ protocol ChannelVCDelegate {
     /// - Parameter subChannel: 传回来的  subChannel
     func updateChannel(channel: String, subChannel: String)
 }
+
+// 笔记搜索地区页面反向传值协议
+protocol POIVCDelegate {
+    func updatePOIName(_ name: String)
+}

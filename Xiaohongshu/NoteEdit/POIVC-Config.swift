@@ -14,9 +14,14 @@ extension POIVC {
         // 逆地理请求超时时间，最低 2s
         locationManager.reGeocodeTimeout = 5
         
-        // 上拉加载 footer
-        mjFooter.setRefreshingTarget(self, refreshingAction: #selector(aroundSearchPullToRefresh))
         tableView.mj_footer = mjFooter
+        
+        // searchBar config
+        // searchBar.becomeFirstResponder() // searchBar auto focus
+        // 激活 searchBar 的取消按钮，默认不 focus 的话，是禁用的
+        if let cancelButton = searchBar.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.isEnabled = true
+        }
         
         // 点击空白处收起软键盘
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyBoard))

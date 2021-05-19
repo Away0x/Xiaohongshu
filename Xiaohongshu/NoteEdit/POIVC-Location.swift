@@ -6,8 +6,8 @@
 //
 
 extension POIVC {
+    // 请求权限，并进行定位
     func requestLocation() {
-        // 请求权限，并进行定位
         showLoadHUB() // 显示 loading
         locationManager.requestLocation(withReGeocode: true, completionBlock: { [weak self] (location: CLLocation?, reGeocode: AMapLocationReGeocode?, error: Error?) in
             
@@ -47,10 +47,10 @@ extension POIVC {
                 // NSLog("location:%@", location)
                 POIVC.latitude = location.coordinate.latitude
                 POIVC.longitude = location.coordinate.longitude
+                // 设置周边搜索时上拉加载的事件函数
+                POIVC.setAroundSearchFooter()
                 // 搜索周边，搜索成功会触发 onPOISearchDone
                 POIVC.makeAroundSearch()
-                // 设置周边搜索时上拉加载的事件函数
-                POIVC.mjFooter.setRefreshingTarget(POIVC, refreshingAction: #selector(POIVC.aroundSearchPullToRefresh))
             }
             
             if let reGeocode = reGeocode {
@@ -74,11 +74,22 @@ extension POIVC {
 }
 
 // MARK: - 所有 POI 搜索的回调 AMapSearchDelegate
+// 关键字搜索和周边搜索有结果时的回调
 extension POIVC : AMapSearchDelegate {
     // 搜索请求结束
     func onPOISearchDone(_ request: AMapPOISearchBaseRequest!, response: AMapPOISearchResponse!) {
         self.hideLoadHub() // 隐藏 loading
-        if response.count == 0 { return }
+        
+        let poiCount = response.count
+        
+        // 存储总页数
+        if poiCount > kPOIsOffset {
+            pageCount = Int(ceil(Double(poiCount) / Double(kPOIsOffset)))
+        } else {
+            mjFooter.endRefreshingWithNoMoreData()
+        }
+        
+        if poiCount == 0 { return }
         
         for poi in response.pois {
             let province = poi.province == poi.city ? "" : poi.province
@@ -91,34 +102,36 @@ extension POIVC : AMapSearchDelegate {
             }
         }
         
-        
-        if response.count > kPOIsOffset {
-            pageCount = Int(ceil(Double(response.count) / Double(kPOIsOffset)))
-        } else {
-            mjFooter.endRefreshingWithNoMoreData()
-        }
-        
         tableView.reloadData()
     }
 }
 
 extension POIVC {
     // 搜索周边地点
-    func makeAroundSearch(_ page: Int = 1) {
+    private func makeAroundSearch(_ page: Int = 1) {
         aroundSearchRequest.page = page
         mapSearch?.aMapPOIAroundSearch(aroundSearchRequest)
     }
-}
-
-extension POIVC {
+    
+    // 设置周边搜索时上拉加载的事件函数
+    func setAroundSearchFooter() {
+        mjFooter.resetNoMoreData()
+        mjFooter.setRefreshingTarget(self, refreshingAction: #selector(aroundSearchPullToRefresh))
+    }
+    
     // 周边加载上拉加载, 请求下一页的数据
-    @objc func aroundSearchPullToRefresh() {
+    @objc private func aroundSearchPullToRefresh() {
         currentAroundPage += 1
         makeAroundSearch(currentAroundPage)
-        if currentAroundPage < pageCount {
-            mjFooter.endRefreshing()
+        endRefreshing(currentAroundPage)
+    }
+    
+    // 判断是否停止上拉加载 (没有数据了要停止)
+    func endRefreshing(_ currentPage: Int) {
+        if currentPage < pageCount {
+            mjFooter.endRefreshing() // 结束上拉加载的小菊花
         } else {
-            mjFooter.endRefreshingWithNoMoreData()
+            mjFooter.endRefreshingWithNoMoreData() // 展示加载完毕UI, 并使上拉加载功能失效
         }
     }
 }

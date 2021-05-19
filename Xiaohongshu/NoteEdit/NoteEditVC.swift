@@ -42,6 +42,11 @@ class NoteEditVC: UIViewController {
     var channel = ""
     var subChannel = ""
     
+    // ------------------- 地点 -------------------
+    @IBOutlet weak var poiNameIcon: UIImageView!
+    @IBOutlet weak var poiNameLabel: UILabel!
+    var poiName = ""
+    
     // ------------------- 初始化 -------------------
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,11 +88,14 @@ class NoteEditVC: UIViewController {
     
     // TODO: 存草稿和发布笔记之前需判断当前用户输入的正文文本数量，看是否大于最大可输入的字符数
     
-    // 因为 ChannelVC 的跳转是在 storyboard 中指定的，所以只能在这边进行判断
+    // 因为 ChannelVC/POIVC 的跳转是在 storyboard 中指定的，所以只能在这边进行判断
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let channelVC = segue.destination as? ChannelVC {
             // channelVC 不是 self 下的属性, 没有强引用问题，所以 PVDelegate 声明时不用标记 weak
             channelVC.PVDelegate = self
+        } else if let poiVC = segue.destination as? POIVC {
+            poiVC.delegate = self
+            poiVC.poiName = self.poiName
         }
     }
 }
@@ -103,7 +111,7 @@ extension NoteEditVC : UITextViewDelegate {
     }
 }
 
-// vc 反向传值协议
+// MARK: - ChannelVCDelegate 反向传值协议
 extension NoteEditVC : ChannelVCDelegate {
     // 获取 ChannelTableVC 传递的数据
     func updateChannel(channel: String, subChannel: String) {
@@ -114,5 +122,24 @@ extension NoteEditVC : ChannelVCDelegate {
         channelLabel.textColor = kBlueColor
         channelIcon.tintColor = kBlueColor
         channelPlaceHolderLabel.isHidden = true
+    }
+}
+
+// MARK: - POIVCDelegate 反向传值协议
+extension NoteEditVC : POIVCDelegate {
+    func updatePOIName(_ name: String) {
+        // 不显示位置
+        if name == kPOIsInitArr[0][0] {
+            self.poiName = ""
+            poiNameLabel.text = "添加地点"
+            poiNameLabel.textColor = .label
+            poiNameIcon.tintColor = .label
+            return
+        }
+        
+        self.poiName = name
+        poiNameLabel.text = name
+        poiNameLabel.textColor = kBlueColor
+        poiNameIcon.tintColor = kBlueColor
     }
 }
