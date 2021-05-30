@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		030ACDCD2647B15000D98CEB /* POIVC-KeywordsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030ACDCC2647B15000D98CEB /* POIVC-KeywordsSearch.swift */; };
+		031419AD2662514F0024766D /* DraftNoteWaterfallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419AC2662514E0024766D /* DraftNoteWaterfallCell.swift */; };
+		031419C026627FD40024766D /* WaterfallVC-LoadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419BF26627FD40024766D /* WaterfallVC-LoadData.swift */; };
+		031419C32662802B0024766D /* WaterfallVC-Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419C22662802B0024766D /* WaterfallVC-Config.swift */; };
+		031419C8266363940024766D /* WaterfallVC-DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419C7266363940024766D /* WaterfallVC-DataSource.swift */; };
+		031419CC266369280024766D /* WaterfallVC-Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419CB266369280024766D /* WaterfallVC-Delegate.swift */; };
+		031419EC2663BA140024766D /* NoteEdit-Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419EB2663BA140024766D /* NoteEdit-Helper.swift */; };
+		031419F02663BB070024766D /* NoteEditVC-UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419EF2663BB070024766D /* NoteEditVC-UI.swift */; };
+		031419F42663C0E60024766D /* NoteEditVC-DraftNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419F32663C0E60024766D /* NoteEditVC-DraftNote.swift */; };
+		031419FB2663CD510024766D /* MeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031419FA2663CD510024766D /* MeVC.swift */; };
 		0340E263261B334D00C02A3B /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0340E262261B334D00C02A3B /* HomeVC.swift */; };
 		03452B33262311300083B808 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B32262311300083B808 /* Extensions.swift */; };
 		03452B38262327680083B808 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03452B37262327680083B808 /* PostVC.swift */; };
@@ -50,6 +59,16 @@
 /* Begin PBXFileReference section */
 		030ACDCC2647B15000D98CEB /* POIVC-KeywordsSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "POIVC-KeywordsSearch.swift"; sourceTree = "<group>"; };
 		03111E5B263848EB0095B9E6 /* XiaohongShu-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XiaohongShu-Bridging-Header.h"; sourceTree = "<group>"; };
+		031419AC2662514E0024766D /* DraftNoteWaterfallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraftNoteWaterfallCell.swift; sourceTree = "<group>"; };
+		031419BF26627FD40024766D /* WaterfallVC-LoadData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterfallVC-LoadData.swift"; sourceTree = "<group>"; };
+		031419C22662802B0024766D /* WaterfallVC-Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterfallVC-Config.swift"; sourceTree = "<group>"; };
+		031419C7266363940024766D /* WaterfallVC-DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterfallVC-DataSource.swift"; sourceTree = "<group>"; };
+		031419CB266369280024766D /* WaterfallVC-Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WaterfallVC-Delegate.swift"; sourceTree = "<group>"; };
+		031419EB2663BA140024766D /* NoteEdit-Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEdit-Helper.swift"; sourceTree = "<group>"; };
+		031419EF2663BB070024766D /* NoteEditVC-UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditVC-UI.swift"; sourceTree = "<group>"; };
+		031419F32663C0E60024766D /* NoteEditVC-DraftNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteEditVC-DraftNote.swift"; sourceTree = "<group>"; };
+		031419F82663CA670024766D /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		031419FA2663CD510024766D /* MeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeVC.swift; sourceTree = "<group>"; };
 		0340E262261B334D00C02A3B /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		03452B32262311300083B808 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		03452B37262327680083B808 /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
@@ -61,7 +80,6 @@
 		0348490D264397F8008CF341 /* TextViewIAView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextViewIAView.xib; sourceTree = "<group>"; };
 		0348491026439966008CF341 /* TextViewIAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewIAView.swift; sourceTree = "<group>"; };
 		034EEF28261C8F920056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		034EEF2F261C93080056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		034EEF3F261C9D100056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		034EEF48261C9EEB0056B61E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		0355045026399782009BA2CB /* testVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = testVideo.mp4; sourceTree = "<group>"; };
@@ -107,11 +125,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		031419C5266280B80024766D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				03456699261B50A6001490C4 /* WaterfallCell.swift */,
+				031419AC2662514E0024766D /* DraftNoteWaterfallCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0345669C261B595D001490C4 /* Waterfall */ = {
 			isa = PBXGroup;
 			children = (
 				03456696261B4E12001490C4 /* WaterfallVC.swift */,
-				03456699261B50A6001490C4 /* WaterfallCell.swift */,
+				031419C22662802B0024766D /* WaterfallVC-Config.swift */,
+				031419C7266363940024766D /* WaterfallVC-DataSource.swift */,
+				031419CB266369280024766D /* WaterfallVC-Delegate.swift */,
+				031419BF26627FD40024766D /* WaterfallVC-LoadData.swift */,
+				031419C5266280B80024766D /* Views */,
 			);
 			path = Waterfall;
 			sourceTree = "<group>";
@@ -140,8 +171,11 @@
 			children = (
 				036AF988262726CB001EAA02 /* NoteEditVC.swift */,
 				0348490A26438444008CF341 /* NoteEditVC-Config.swift */,
+				031419EF2663BB070024766D /* NoteEditVC-UI.swift */,
 				034848FC2642D455008CF341 /* NoteEditVC-CollectionView.swift */,
 				0355045426399B4E009BA2CB /* NoteEditVC-DragDrop.swift */,
+				031419F32663C0E60024766D /* NoteEditVC-DraftNote.swift */,
+				031419EB2663BA140024766D /* NoteEdit-Helper.swift */,
 				039E00752643E72E00C108C4 /* ChannelVC.swift */,
 				03CF45792643E92200E8DA15 /* ChannelTableVC.swift */,
 				03ECA67D2644137A0066228F /* POIVC.swift */,
@@ -202,6 +236,7 @@
 			children = (
 				0355045026399782009BA2CB /* testVideo.mp4 */,
 				03EDE3D52617715500B95BEA /* Main.storyboard */,
+				031419FA2663CD510024766D /* MeVC.swift */,
 				037EB4B02636F4740000BA14 /* NoteEdit */,
 				03A6665E261B39C2002ACDE5 /* Home */,
 				0345669C261B595D001490C4 /* Waterfall */,
@@ -362,29 +397,38 @@
 				03CF457E2643F34D00E8DA15 /* Protocols.swift in Sources */,
 				035588B6264575E600D676ED /* POIVC-Location.swift in Sources */,
 				0355045526399B4E009BA2CB /* NoteEditVC-DragDrop.swift in Sources */,
+				031419EC2663BA140024766D /* NoteEdit-Helper.swift in Sources */,
 				03452B38262327680083B808 /* PostVC.swift in Sources */,
 				03A66659261B3774002ACDE5 /* NearByVC.swift in Sources */,
 				03783D05261F39ED008B1FB7 /* TabBarC.swift in Sources */,
 				03456697261B4E12001490C4 /* WaterfallVC.swift in Sources */,
 				030ACDCD2647B15000D98CEB /* POIVC-KeywordsSearch.swift in Sources */,
+				031419C8266363940024766D /* WaterfallVC-DataSource.swift in Sources */,
 				036AF989262726CB001EAA02 /* NoteEditVC.swift in Sources */,
 				037EB4AD2636EF940000BA14 /* PhotoFooter.swift in Sources */,
+				031419F42663C0E60024766D /* NoteEditVC-DraftNote.swift in Sources */,
 				0345669A261B50A6001490C4 /* WaterfallCell.swift in Sources */,
 				03EDE3DA2617715500B95BEA /* Xiaohongshu.xcdatamodeld in Sources */,
+				031419FB2663CD510024766D /* MeVC.swift in Sources */,
 				0340E263261B334D00C02A3B /* HomeVC.swift in Sources */,
+				031419F02663BB070024766D /* NoteEditVC-UI.swift in Sources */,
 				03A66653261B374D002ACDE5 /* FollowVC.swift in Sources */,
 				034848FD2642D455008CF341 /* NoteEditVC-CollectionView.swift in Sources */,
 				039E00762643E72E00C108C4 /* ChannelVC.swift in Sources */,
 				0348490B26438444008CF341 /* NoteEditVC-Config.swift in Sources */,
+				031419C026627FD40024766D /* WaterfallVC-LoadData.swift in Sources */,
+				031419CC266369280024766D /* WaterfallVC-Delegate.swift in Sources */,
 				03452B33262311300083B808 /* Extensions.swift in Sources */,
 				03EDE3D02617715500B95BEA /* AppDelegate.swift in Sources */,
 				03EDE3D22617715500B95BEA /* SceneDelegate.swift in Sources */,
 				03A66656261B3760002ACDE5 /* DiscoveryVC.swift in Sources */,
 				03CF457A2643E92200E8DA15 /* ChannelTableVC.swift in Sources */,
+				031419C32662802B0024766D /* WaterfallVC-Config.swift in Sources */,
 				03A6665C261B3895002ACDE5 /* Constants.swift in Sources */,
 				0378E0FE262C587F009343FB /* PhotoCell.swift in Sources */,
 				03ECA67E2644137A0066228F /* POIVC.swift in Sources */,
 				035588B2264575A500D676ED /* POIVC-Config.swift in Sources */,
+				031419AD2662514F0024766D /* DraftNoteWaterfallCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +455,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				03EDE3D62617715500B95BEA /* Base */,
-				034EEF2F261C93080056B61E /* zh-Hans */,
+				031419F82663CA670024766D /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

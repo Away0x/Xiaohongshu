@@ -23,5 +23,7 @@ target 'Xiaohongshu' do
   pod 'AMapSearch' # https://lbs.amap.com/api/ios-sdk/gettingstarted
   # 下拉刷新/上拉加载
   pod 'MJRefresh'
+  # 时间日期处理
+  pod 'DateToolsSwift'
 
 end

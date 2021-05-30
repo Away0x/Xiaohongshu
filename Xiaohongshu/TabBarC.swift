@@ -50,23 +50,34 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
             picker.didFinishPicking { [unowned picker] items, canceled in
                 if canceled {
                     print("用户按了左上角的取消按钮")
+                    self.dismiss(animated: true)
+                    return
                 }
+                
+                var photos: [UIImage] = []
+                var videoURL: URL?
                 
                 for item in items {
                     switch item {
                     case let .photo(photo):
                         print(photo)
+                        photos.append(photo.image)
                     case .video(let video):
                         print(video)
+                        // 从沙盒的 tmp 文件夹中找到原视频
+//                        let url = URL(fileURLWithPath: "recordedVideoRAW.mov", relativeTo: FileManager.default.temporaryDirectory)
+//                        photos.append(url.thumbnail)
+//                        videoURL = url
                     }
                 }
                 
-                // picker.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
-                picker.dismiss(animated: true)
+                let noteVC = self.storyboard!.instantiateViewController(identifier: kNoteEditVCID) as! NoteEditVC
+                noteVC.photos = photos
+                noteVC.videoURL = videoURL
+                picker.pushViewController(noteVC, animated: true)
             }
             
             present(picker, animated: true)
-            
             return false
         }
         

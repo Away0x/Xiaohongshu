@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
-
+    // core data 持久化容器
     lazy var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
@@ -63,9 +63,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }()
 
     // MARK: - Core Data Saving support
-
+    // core data 存储数据的方法
     func saveContext () {
         let context = persistentContainer.viewContext
+        // 如果持久化容器中的数据有变化，则存储到本地
         if context.hasChanges {
             do {
                 try context.save()
@@ -78,6 +79,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // 并发队列上的 context 存储
+    func saveBackgroundContext(){
+        // 因可以有多个并发队列的 context,故每次 persistentContainer.viewContext 时都会创建个新的, 故不能像上面一样.
+        // 这里需用使用同一个并发队列的 context (即常量文件夹中引用的那个)
+        if backgroundContext.hasChanges{
+            do {
+                try backgroundContext.save()
+            } catch {
+                fatalError("后台存储数据失败(包括增删改):\(error)")
+            }
+        }
+    }
 }
 
 extension AppDelegate {
@@ -85,5 +98,8 @@ extension AppDelegate {
         // 配置高德地图 (如果需要定位海外地址，需要开通高德海外 LBS)
         AMapServices.shared().enableHTTPS = true
         AMapServices.shared().apiKey = "83c1ad414cc8a51c8bdc76109d531049"
+        
+        // 设置所有的 navigationItem 的返回按钮颜色
+        UINavigationBar.appearance().tintColor = .label
     }
 }

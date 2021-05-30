@@ -8,6 +8,7 @@
 import UIKit
 
 // swift 中常量一般以 k 开头
+// 常量文件里面都是懒加载的
 
 // MARK: StoryboardID
 let kFollowVCID = "FollowVCID"
@@ -23,16 +24,27 @@ let kPhotoCellID = "PhotoCellID"
 let kPhotoFooterID = "PhotoFooterID"
 let kSubChannelCellID = "SubChannelCellID"
 let kPOICellID = "POICellID"
+let kDraftNoteWaterfallCellID = "DraftNoteWaterfallCellID"
 
 // MARK: - 资源文件相关
 let kMainColor = UIColor(named: "main")!
 let kBlueColor = UIColor(named: "blue")!
+let kImagePlaceHolder = UIImage(named: "1")!
 
 // MARK: size
 // 瀑布流
 let kWaterfallPadding: CGFloat = 4
+let kDraftNoteWaterfallCellBottomViewHeight: CGFloat = 86.5 // 从 storyboard 里面测量到的 16+54.5+16
+// UI
+let kScreenRect = UIScreen.main.bounds
 
-// MARK: -业务为逻辑相关
+// MARK: - CoreData
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let persistentContainer = appDelegate.persistentContainer
+let context = persistentContainer.viewContext
+let backgroundContext = persistentContainer.newBackgroundContext()
+
+// MARK: - 业务为逻辑相关
 let kChannels = ["推荐", "旅行", "娱乐", "才艺", "美妆", "白富美", "美食", "萌宠"]
 
 // YPImagePicker

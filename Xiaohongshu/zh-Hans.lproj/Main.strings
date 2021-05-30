@@ -2,8 +2,11 @@
 /* Class = "UITabBarItem"; title = "Shopping"; ObjectID = "3Kn-WO-UsU"; */
 "3Kn-WO-UsU.title" = "商城";
 
-/* Class = "UITabBarItem"; title = "Me"; ObjectID = "4l9-9o-0M7"; */
-"4l9-9o-0M7.title" = "我";
+/* Class = "UILabel"; text = "发布笔记页面(占位)"; ObjectID = "8ax-vD-eVR"; */
+"8ax-vD-eVR.text" = "发布笔记页面(占位)";
+
+/* Class = "UIButton"; normalTitle = "发布笔记"; ObjectID = "9hQ-hz-fO9"; */
+"9hQ-hz-fO9.normalTitle" = "发布笔记";
 
 /* Class = "UILabel"; text = "关注的人"; ObjectID = "B5s-GA-00p"; */
 "B5s-GA-00p.text" = "关注的人";
@@ -14,5 +17,44 @@
 /* Class = "UITabBarItem"; title = "Post"; ObjectID = "CmY-kJ-jT3"; */
 "CmY-kJ-jT3.title" = "发布";
 
+/* Class = "UITextField"; placeholder = "填写标题"; ObjectID = "Ec2-MO-ANO"; */
+"Ec2-MO-ANO.placeholder" = "填写标题";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "LLZ-Cx-N44"; */
+"LLZ-Cx-N44.text" = "20";
+
+/* Class = "UILabel"; text = "选择合适的话题让更多人看到"; ObjectID = "N9o-B3-zMD"; */
+"N9o-B3-zMD.text" = "选择合适的话题让更多人看到";
+
+/* Class = "UILabel"; text = "参与话题"; ObjectID = "NAe-IR-TlR"; */
+"NAe-IR-TlR.text" = "参与话题";
+
+/* Class = "UISearchBar"; placeholder = "搜索地点"; ObjectID = "OgP-OD-qIq"; */
+"OgP-OD-qIq.placeholder" = "搜索地点";
+
+/* Class = "UIButton"; normalTitle = "我的草稿"; ObjectID = "QTe-VB-ELL"; */
+"QTe-VB-ELL.normalTitle" = "我的草稿";
+
+/* Class = "UILabel"; text = "08-08"; ObjectID = "RQU-Tb-fap"; */
+"RQU-Tb-fap.text" = "08-08";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "SMC-GP-lfd"; */
+"SMC-GP-lfd.text" = "Title";
+
+/* Class = "UILabel"; text = "今天天气不错啊"; ObjectID = "YTz-39-3Zk"; */
+"YTz-39-3Zk.text" = "今天天气不错啊";
+
 /* Class = "UITabBarItem"; title = "Home"; ObjectID = "YgG-6K-7fx"; */
 "YgG-6K-7fx.title" = "首页";
+
+/* Class = "UILabel"; text = "添加地点"; ObjectID = "cnr-Mx-2Ma"; */
+"cnr-Mx-2Ma.text" = "添加地点";
+
+/* Class = "UIButton"; normalTitle = "存草稿"; ObjectID = "hg8-Nu-TWT"; */
+"hg8-Nu-TWT.normalTitle" = "存草稿";
+
+/* Class = "UITabBarItem"; title = "Me"; ObjectID = "uNU-el-Nr9"; */
+"uNU-el-Nr9.title" = "我";
+
+/* Class = "UILabel"; text = "上海市xx区xx街道"; ObjectID = "xEJ-4u-uzG"; */
+"xEJ-4u-uzG.text" = "上海市xx区xx街道";
