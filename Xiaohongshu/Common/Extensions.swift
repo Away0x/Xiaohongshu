@@ -102,7 +102,8 @@ extension UIViewController {
     // 提示框
     func showTextHUB(_ title: String, _ inCurrentView: Bool = true, _ subTitle: String? = nil) {
         var viewToShow = view!
-        if !inCurrentView{
+        if !inCurrentView {
+            // 根视图为当前显示的最上层的 view，避免执行 showTextHUB 时 vc 已经销毁了，导致提示框不显示
             viewToShow = UIApplication.shared.windows.last!
         }
         
@@ -201,15 +202,16 @@ extension FileManager {
 
 // MARK: - URL
 extension URL {
-    // 从视频中生成封面图(了解)
+    // 从视频中生成封面图
     var thumbnail: UIImage {
         let asset = AVAsset(url: self)
         let assetImgGenerate = AVAssetImageGenerator(asset: asset)
-        assetImgGenerate.appliesPreferredTrackTransform = true
+        assetImgGenerate.appliesPreferredTrackTransform = true // 不旋转
         
         // 如果视频尺寸确定的话可以用下面这句提高处理性能
         // assetImgGenerate.maximumSize = CGSize(width,height)
         
+        // 截取视频开始 1/600 秒的图片，即一开始的图片
         let time = CMTimeMakeWithSeconds(1.0, preferredTimescale: 600)
         
         do {

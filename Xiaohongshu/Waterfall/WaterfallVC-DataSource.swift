@@ -39,19 +39,22 @@ extension WaterfallVC {
 // MARK: - 一般函数
 extension WaterfallVC {
     private func deleteDraftNote(_ index: Int) {
-        let draftNote = draftNotes[index]
-        
-        // core data 删除
-        context.delete(draftNote)
-        appDelegate.saveContext()
-        
-        // ui 上删除
-        draftNotes.remove(at: index)
-        collectionView.performBatchUpdates {
-            // 用deleteItems会出现'index out of range'的错误,因为DataSource里面的index没有更新过来,故直接使用reloadData
-            // self.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
-            self.collectionView.reloadData()
-            self.showTextHUB("删除草稿成功")
+        backgroundContext.perform {
+            let draftNote = self.draftNotes[index]
+            
+            // core data 删除
+            context.delete(draftNote)
+            appDelegate.saveContext()
+            
+            // ui 上删除
+            self.draftNotes.remove(at: index)
+            
+            DispatchQueue.main.async {
+                // 用deleteItems会出现'index out of range'的错误,因为DataSource里面的index没有更新过来,故直接使用reloadData
+                // self.collectionView.deleteItems(at: [IndexPath(item: index, section: 0)])
+                self.collectionView.reloadData()
+                self.showTextHUB("删除草稿成功")
+            }
         }
     }
 }

@@ -40,9 +40,9 @@ let kScreenRect = UIScreen.main.bounds
 
 // MARK: - CoreData
 let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let persistentContainer = appDelegate.persistentContainer
+let persistentContainer = appDelegate.persistentContainer // 持久化容器
 let context = persistentContainer.viewContext
-let backgroundContext = persistentContainer.newBackgroundContext()
+let backgroundContext = persistentContainer.newBackgroundContext() // 后台队列
 
 // MARK: - 业务为逻辑相关
 let kChannels = ["推荐", "旅行", "娱乐", "才艺", "美妆", "白富美", "美食", "萌宠"]

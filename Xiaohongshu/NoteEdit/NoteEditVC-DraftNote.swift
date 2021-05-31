@@ -1,7 +1,7 @@
 //
 //  NoteEditVC-DraftNote.swift
 //  Xiaohongshu
-//
+//  草稿相关
 //  Created by 吴彤 on 2021/5/30.
 //
 
@@ -10,6 +10,7 @@ import Foundation
 extension NoteEditVC {
     // MARK: 创建草稿
     func createDraftNote() {
+        // 后台线程中保存 core data
         backgroundContext.perform {
             let draftNote = DraftNote(context: backgroundContext)
             
@@ -42,6 +43,7 @@ extension NoteEditVC {
                 self.updateDraftNoteFinished?()
             }
         }
+        // 更新草稿页面一般都是由 nav push 进来的
         navigationController?.popViewController(animated: true)
     }
 }

@@ -236,9 +236,10 @@
 			children = (
 				0355045026399782009BA2CB /* testVideo.mp4 */,
 				03EDE3D52617715500B95BEA /* Main.storyboard */,
+				03783D04261F39ED008B1FB7 /* TabBarC.swift */,
 				031419FA2663CD510024766D /* MeVC.swift */,
-				037EB4B02636F4740000BA14 /* NoteEdit */,
 				03A6665E261B39C2002ACDE5 /* Home */,
+				037EB4B02636F4740000BA14 /* NoteEdit */,
 				0345669C261B595D001490C4 /* Waterfall */,
 				0345669E261B5967001490C4 /* Common */,
 				03EDE3DB2617715800B95BEA /* Assets.xcassets */,
@@ -248,7 +249,6 @@
 				03EDE3E02617715800B95BEA /* Info.plist */,
 				03EDE3D82617715500B95BEA /* Xiaohongshu.xcdatamodeld */,
 				034EEF46261C9E810056B61E /* Resources */,
-				03783D04261F39ED008B1FB7 /* TabBarC.swift */,
 				03111E5B263848EB0095B9E6 /* XiaohongShu-Bridging-Header.h */,
 			);
 			path = Xiaohongshu;

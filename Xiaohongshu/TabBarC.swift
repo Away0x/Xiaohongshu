@@ -40,6 +40,7 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
             config.library.maxNumberOfItems = kMaxPhotoCount // 最大选取照片或视频数
             config.library.spacingBetweenItems = kSpacingBetweenItems // 照片缩略图之间的间距
             // MARK: 视频配置(参照文档,此处全部默认)
+            config.showsVideoTrimmer = false
             
             // MARK: Gallery(多选完后的展示和编辑页面)-画廊
             config.gallery.hidesRemoveButton = false // 每个照片或视频右上方是否有删除按钮
@@ -64,10 +65,14 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
                         photos.append(photo.image)
                     case .video(let video):
                         print(video)
-                        // 从沙盒的 tmp 文件夹中找到原视频
-//                        let url = URL(fileURLWithPath: "recordedVideoRAW.mov", relativeTo: FileManager.default.temporaryDirectory)
-//                        photos.append(url.thumbnail)
-//                        videoURL = url
+                        // photos.append(video.thumbnail)
+                        // videoURL = video.url
+                        
+                        // 从沙盒的 tmp 文件夹中找到原视频, 保存的视频会存为 recordedVideoRAW.mov
+                        let url = URL(fileURLWithPath: "recordedVideoRAW.mov", relativeTo: FileManager.default.temporaryDirectory)
+                        
+                        photos.append(url.thumbnail)
+                         videoURL = url
                     }
                 }
                 
