@@ -34,6 +34,9 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
             config.startOnScreen = .library // 一打开就展示相册
             config.screens = [.library, .video, .photo] // 依次展示相册，拍视频，拍照页面
             config.maxCameraZoomFactor = kMaxCameraZoomFactor // 最大多少倍变焦
+            //拍视频后的剪辑处理
+            //此包会把拍摄的视频往上移,导致下面多出黑色,遂取消剪辑,从tmp文件夹取出原视频并自己制作封面
+            config.showsVideoTrimmer = false
             
             // MARK: 相册配置
             config.library.defaultMultipleSelection = true // 是否可多选
@@ -72,7 +75,7 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
                         let url = URL(fileURLWithPath: "recordedVideoRAW.mov", relativeTo: FileManager.default.temporaryDirectory)
                         
                         photos.append(url.thumbnail)
-                         videoURL = url
+                        videoURL = url
                     }
                 }
                 
@@ -89,5 +92,4 @@ class TabBarC: UITabBarController, UITabBarControllerDelegate {
         // 执行切换 view controller 操作
         return true
     }
-
 }

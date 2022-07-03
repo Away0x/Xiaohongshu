@@ -17,5 +17,11 @@ class MeVC: UIViewController {
         // ios 14 后可以这么设置
         navigationItem.backButtonDisplayMode = .minimal
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let draftVC = segue.destination as? WaterfallVC {
+            draftVC.isMyDraft = true
+        }
+    }
 
 }

@@ -89,7 +89,10 @@ extension POIVC : AMapSearchDelegate {
             mjFooter.endRefreshingWithNoMoreData()
         }
         
-        if poiCount == 0 { return }
+        if poiCount == 0 {
+            tableView.reloadData()
+            return
+        }
         
         for poi in response.pois {
             let province = poi.province == poi.city ? "" : poi.province

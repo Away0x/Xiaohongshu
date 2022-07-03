@@ -39,12 +39,13 @@ extension WaterfallVC {
 // MARK: - 一般函数
 extension WaterfallVC {
     private func deleteDraftNote(_ index: Int) {
+        // 在后台队列中处理，提高性能
         backgroundContext.perform {
             let draftNote = self.draftNotes[index]
             
             // core data 删除
-            context.delete(draftNote)
-            appDelegate.saveContext()
+            backgroundContext.delete(draftNote)
+            appDelegate.saveBackgroundContext()
             
             // ui 上删除
             self.draftNotes.remove(at: index)

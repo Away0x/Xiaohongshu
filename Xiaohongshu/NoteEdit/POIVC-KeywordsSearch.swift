@@ -43,6 +43,7 @@ extension POIVC {
     private func makeKeywordsSearch(_ keywords: String, _ page: Int = 1){
         keywordSearchRequest.keywords = keywords
         keywordSearchRequest.page = page
+        print("关键字搜索:", keywords, page)
         mapSearch?.aMapPOIKeywordsSearch(keywordSearchRequest)
     }
     

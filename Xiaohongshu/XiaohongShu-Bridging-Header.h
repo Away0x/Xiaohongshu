@@ -19,3 +19,6 @@
 #import <AMapFoundationKit/AMapFoundationKit.h>
 #import <AMapLocationKit/AMapLocationKit.h>
 #import <AMapSearchKit/AMapSearchKit.h>
+
+// 极光认证
+#import "JVERIFICATIONService.h"

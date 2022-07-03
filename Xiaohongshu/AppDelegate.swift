@@ -97,9 +97,10 @@ extension AppDelegate {
     private func config() {
         // 配置高德地图 (如果需要定位海外地址，需要开通高德海外 LBS)
         AMapServices.shared().enableHTTPS = true
-        AMapServices.shared().apiKey = "83c1ad414cc8a51c8bdc76109d531049"
+        AMapServices.shared().apiKey = kMapAppKey
         
         // 设置所有的 navigationItem 的返回按钮颜色
         UINavigationBar.appearance().tintColor = .label
+//        UINavigationBar.appearance().backgroundColor = .systemBackground
     }
 }

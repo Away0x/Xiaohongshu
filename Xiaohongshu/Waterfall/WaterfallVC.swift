@@ -13,7 +13,7 @@ class WaterfallVC: UICollectionViewController {
     
     var channel = ""
     var draftNotes: [DraftNote] = []
-    var isMyDraft = true // 用于判断 cell 类型
+    var isMyDraft = false // 用于判断 cell 类型
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ extension WaterfallVC: CHTCollectionViewDelegateWaterfallLayout {
     // 动态设定 cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellW = (kScreenRect.width - kWaterfallPadding * 3) / 2
+        var cellW = (kScreenRect.width - kWaterfallPadding * 3) / 2
         var cellH: CGFloat = 0
         
         if isMyDraft {
@@ -42,6 +42,7 @@ extension WaterfallVC: CHTCollectionViewDelegateWaterfallLayout {
             let imageRatio = img.size.height / img.size.width // 宽高比
             cellH = cellW * imageRatio + kDraftNoteWaterfallCellBottomViewHeight
         } else {
+            cellW = UIImage(named: "\(indexPath.item + 1)")!.size.width
             cellH = UIImage(named: "\(indexPath.item + 1)")!.size.height
         }
         
